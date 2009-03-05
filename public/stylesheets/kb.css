@@ -13,8 +13,14 @@ label {
     width: 120px;
 }
 
+ul {
+    padding:0;
+    margin:0;
+}
+
 li.knowledge {
-    width: 500px;
+    width: 800px;
+    margin-left:0px;
     list-style: none;
     padding: 5px;
     margin: 5px;
