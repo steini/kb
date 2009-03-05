@@ -1,0 +1,28 @@
+<p class="tags">
+  <h2>Tags</h2>
+  <%- @tags.each do |tag| -%>
+    <%= link_to(tag, tag_path(tag)) %>
+  <%- end -%>
+</p>
+
+<h2>latest knowledge</h2>
+<%= "<p class=\"flash\">#{flash[:notice]}</p>" unless flash[:notice].nil? %>
+<ul>
+  <%- @knowledge_entries.each do |knowledge_entry| -%>
+    <li class="knowledge">
+      <strong><%= knowledge_entry.title %></strong>
+      <%= link_to("edit", :action => "edit", :id => knowledge_entry.id) %> /
+      <%= link_to("delete", :action => "delete", :id => knowledge_entry.id) %>
+      <p>
+        <%= parse_coderay(knowledge_entry.content) %>
+      </p>
+      <p class="tags">
+        <%- knowledge_entry.tags.each do |tag| -%>
+          <%= link_to(tag, tag_path(tag)) %>
+        <%- end -%>
+      </p>
+    </li>
+  <%- end -%>
+</ul>
+
+

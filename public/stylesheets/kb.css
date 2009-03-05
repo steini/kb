@@ -1,0 +1,22 @@
+body {
+    font-family: Arial, Helvetica;
+}
+
+.wrapper {
+    margin:0 auto;
+    width:740px;
+}
+
+label {
+    display: block;
+    float: left;
+    width: 120px;
+}
+
+li.knowledge {
+    width: 500px;
+    list-style: none;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid silver;
+}

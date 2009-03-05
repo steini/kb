@@ -1,0 +1,26 @@
+<p>
+  <%= error_messages_for :knowledge_entry %>
+</p>
+<%- form_for @knowledge_entry, :url => {:action => "update", :id => @knowledge_entry.id} do |f| -%>
+  <p>
+    <%= f.label :title, 'Title:' %>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <p><strong>use &lt;code:ruby&gt;code snippet&lt;/code&gt; to embed for example ruby code</strong></p>
+    <%= f.label :content, 'Content:', :style => "float: left" %>
+    <%= f.text_area :content %>
+  </p>
+
+  <p>
+    <%= f.label :tags, 'Tags:' %>
+    <%= f.text_field :tags, :value => @knowledge_entry.tags.join(", ") %>
+     (comma separated values e.q. tag1,tag2)
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+<%- end -%>
