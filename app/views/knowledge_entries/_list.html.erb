@@ -1,0 +1,7 @@
+<ul>
+  <%- knowledge_entries.each do |knowledge_entry| -%>
+    <li class="knowledge">
+      <%= render :partial => 'knowledge_entry', :locals => {:knowledge_entry => knowledge_entry} %>
+    </li>
+  <%- end -%>
+</ul>

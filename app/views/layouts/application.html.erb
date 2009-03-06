@@ -14,6 +14,14 @@
       <ul>
         <li><%= link_to("home", "/") %></li>
         <li><%= link_to("create entry", new_knowledge_entry_url) %></li>
+        <li>
+          <% form_tag(search_path) do %>
+            <p>
+              <%= text_field_tag("q") %>
+              <%= submit_tag("go") %>
+            </p>
+          <% end %>
+        </li>
       </ul>
 
       <%= yield %>

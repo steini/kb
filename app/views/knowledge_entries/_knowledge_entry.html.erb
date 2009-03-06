@@ -1,0 +1,11 @@
+<strong><%= knowledge_entry.title %></strong>
+<%= link_to("edit", :action => "edit", :id => knowledge_entry.id) %> /
+<%= link_to("delete", :action => "delete", :id => knowledge_entry.id) %>
+<p>
+  <%= parse_coderay(knowledge_entry.content) %>
+</p>
+<p class="tags">
+  <%- knowledge_entry.tags.each do |tag| -%>
+    <%= link_to(tag, tag_path(tag)) %>
+  <%- end -%>
+</p>

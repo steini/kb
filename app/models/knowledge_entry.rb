@@ -9,6 +9,13 @@ class KnowledgeEntry < ActiveRecord::Base
     :order => 'created_at DESC'
   }
 
+  define_index do
+    indexes title
+    indexes content
+    
+    has created_at
+  end
+
   def after_destroy()
     check_taggings
   end

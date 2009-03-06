@@ -25,7 +25,7 @@ Rails::Initializer.run do |config|
   # :all can be used as a placeholder for all plugins not explicitly named
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
 
-  config.plugins = [ :exception_notification, :coderay, :acts_as_taggable_on ]
+  config.plugins = [ :exception_notification, :coderay, :acts_as_taggable_on, :thinking_sphinx ]
 
   # Skip frameworks you're not going to use. To use Rails without a database,
   # you must remove the Active Record framework.

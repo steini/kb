@@ -1,0 +1,14 @@
+<%- if @total_pages > 0 -%>
+  <p>showing page <%= @current_page %> of <%= @total_pages %></p>
+  <p>
+    <%- @total_pages.times do |page| -%>
+      <%- if @current_page == page %>
+        <strong><%= page + 1 %></strong>
+      <%- else -%>
+        <%= link_to(page + 1, search_path(:page => page + 1)) %>
+      <%- end -%>
+    <%- end -%>
+  </p>
+<%- end -%>
+
+<%= render :partial => 'list', :locals => {:knowledge_entries => @knowledge_entries} %>

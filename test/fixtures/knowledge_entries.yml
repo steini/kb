@@ -1,11 +1,7 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+<% for i in 1..1000 %>
+  knowledge_entry_<%= i %>:
+    id: <%= i %>
+    title: title_<%= i %>
+    content: This is conent content_<%= i %>
+  <% end %>
 
-one:
-  title: MyString
-  content: MyText
-  author: MyString
-
-two:
-  title: MyString
-  content: MyText
-  author: MyString

@@ -15,6 +15,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :knowledge_entry
 
   map.tag 'tag/:tag', :controller => 'knowledge_entries', :action => 'tag'
+  map.search 'search', :controller => 'knowledge_entries', :action => 'search'
 
   # Sample resource route with options:
   #   map.resources :products, :member => { :short => :get, :toggle => :post }, :collection => { :sold => :get }

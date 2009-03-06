@@ -62,4 +62,24 @@ class KnowledgeEntriesController < ApplicationController
     render :action => 'index'
   end
 
+  def search
+
+    page = params[:page] || 1
+
+    knowledge_entry_ids = KnowledgeEntry.search_for_ids(
+      params[:q].to_s,
+      :match_mode => :any,
+      :per_page => 10,
+      :page => page,
+      :order => "created_at DESC"
+    )
+
+    @total_entries = knowledge_entry_ids.total_entries
+    @total_pages = knowledge_entry_ids.total_pages
+    @current_page = knowledge_entry_ids.current_page
+    @per_page = knowledge_entry_ids.per_page
+
+    @knowledge_entries = KnowledgeEntry.find(knowledge_entry_ids)
+  end
+
 end
