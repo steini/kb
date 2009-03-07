@@ -5,7 +5,8 @@ class PerformanceLogger
   end
 
   def call(env)
-    logger.debug env.inspect
-    @app.call(env)
+    status, headers, body = @app.call(env)
+    headers["test"] = "test"
+    [status, headers, body]
   end
 end
