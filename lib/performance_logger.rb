@@ -5,7 +5,7 @@ class PerformanceLogger
   end
 
   def call(env)
-    puts env.inspect
+    logger.debug env.inspect
     @app.call(env)
   end
 end
