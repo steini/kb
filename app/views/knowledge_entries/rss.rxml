@@ -1,0 +1,20 @@
+xml.instruct! :xml, :version=>"1.0"
+
+xml.rss(:version=>"2.0"){
+  xml.channel{
+    xml.title("kb")
+    xml.link(rss_knowledge_entries_url)
+    xml.description("Latest articles.")
+    xml.language('en-us')
+      @knowledge_entries.each do |ke|
+        xml.item do
+          xml.title(ke.title)
+          xml.description(parse_coderay(ke.content))
+          xml.author(ke.author)
+          xml.pubDate(ke.created_at.strftime("%a, %d %b %Y %H:%M:%S %z"))
+          xml.link(url_for(knowledge_entry_url(ke)))
+          xml.guid(url_for(knowledge_entry_url(ke)))
+        end
+      end
+  }
+}
