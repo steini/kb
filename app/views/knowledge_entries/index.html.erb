@@ -4,7 +4,7 @@
     <%= link_to(tag, tag_path(tag)) %>
   <%- end -%>
 </p>
-
+<link rel="alternate" type="application/rss+xml" title="RSS" href="/knowledge_entries/rss" />
 <h2>latest knowledge</h2>
 <%= "<p class=\"flash\">#{flash[:notice]}</p>" unless flash[:notice].nil? %>
 <%= render :partial => 'list', :locals => {:knowledge_entries => @knowledge_entries} %>

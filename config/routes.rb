@@ -12,7 +12,7 @@ ActionController::Routing::Routes.draw do |map|
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   map.resources :products
 
-  map.resource :knowledge_entry
+  map.resources :knowledge_entries, :collection => {:rss => :get}
 
   map.tag 'tag/:tag', :controller => 'knowledge_entries', :action => 'tag'
   map.search 'search', :controller => 'knowledge_entries', :action => 'search'
