@@ -22,7 +22,15 @@
             </p>
           <% end %>
         </li>
+        <%- if current_user.nil? -%>
+          <li><%= link_to("signup", "/signup") %></li>
+          <li><%= link_to("login", "/login") %></li>
+        <%- else -%>
+          <li><%= link_to("logout", "/logout") %></li>
+        <%- end -%>
       </ul>
+
+      <%= "<p class=\"flash\">#{flash[:notice]}</p>" unless flash[:notice].nil? %>
 
       <%= yield %>
     </div>

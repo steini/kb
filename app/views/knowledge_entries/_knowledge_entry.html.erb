@@ -1,6 +1,8 @@
 <strong><%= knowledge_entry.title %></strong>
-<%= link_to("edit", :action => "edit", :id => knowledge_entry.id) %> /
-<%= link_to("delete", :action => "delete", :id => knowledge_entry.id) %>
+<%- unless current_user.nil? -%>
+  <%= link_to("edit", :action => "edit", :id => knowledge_entry.id) %> /
+  <%= link_to("delete", :action => "delete", :id => knowledge_entry.id) %>
+<%- end -%>
 <p>
   <%= parse_coderay(knowledge_entry.content) %>
 </p>

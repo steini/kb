@@ -35,10 +35,18 @@ class KnowledgeEntriesController < ApplicationController
   end
 
   def edit
+    if current_user.nil?
+      flash[:notice] = "you must be loggedin, in order to update knowledge"
+      redirect_to("/")
+    end
     @knowledge_entry = KnowledgeEntry.find(params[:id])
   end
 
   def update
+    if current_user.nil?
+      flash[:notice] = "you must be loggedin, in order to update knowledge"
+      redirect_to("/") and return
+    end
     @knowledge_entry = KnowledgeEntry.find(params[:id])
     @knowledge_entry.tag_list = params[:knowledge_entry][:tags]
 
@@ -48,7 +56,7 @@ class KnowledgeEntriesController < ApplicationController
 
       if @knowledge_entry.update_attributes(params[:knowledge_entry])
         flash[:notice] = "knowledge successfully updated!"
-        redirect_to "/"
+        redirect_to "/" and return
       else
         render :action => "edit"
       end
@@ -58,6 +66,10 @@ class KnowledgeEntriesController < ApplicationController
   end
 
   def delete
+    if current_user.nil?
+      flash[:notice] = "you must be loggedin, in order to delete knowledge"
+      redirect_to("/") and return
+    end
     knowledge_entry = KnowledgeEntry.find(params[:id])
     if knowledge_entry.destroy
       flash[:notice] = "knowledge successfully deleted!"
