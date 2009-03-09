@@ -1,7 +1,7 @@
 <p>
   <%= error_messages_for :knowledge_entry %>
 </p>
-<%- form_for @knowledge_entry, :url => knowledge_entry_path do |f| -%>
+<%- form_for @knowledge_entry, :url => knowledge_entries_path do |f| -%>
   <p>
     <%= f.label :title, 'Title:' %>
     <%= f.text_field :title %>
