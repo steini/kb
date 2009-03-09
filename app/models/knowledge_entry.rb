@@ -27,9 +27,7 @@ class KnowledgeEntry < ActiveRecord::Base
   def check_taggings
 
     Tag.find(:all).each do |tag|
-      if KnowledgeEntry.tagged_with(tag, :on => :tags).size == 0
-        tag.destroy
-      end
+      tag.destroy if KnowledgeEntry.tagged_with(tag, :on => :tags).size == 0
     end
   end
 

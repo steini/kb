@@ -1,11 +1,22 @@
 class KnowledgeEntriesController < ApplicationController
+
+  layout "application", :except => [:rss]
+
   def index
     @knowledge_entries = KnowledgeEntry.recent
     @tags = Tag.find(:all)
   end
 
+  def rss
+    @knowledge_entries = KnowledgeEntry.recent
+  end
+
   def new
     @knowledge_entry = KnowledgeEntry.new
+  end
+
+  def show
+    @knowledge_entry = KnowledgeEntry.find_by_id(params[:id])
   end
 
   def create
