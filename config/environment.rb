@@ -30,7 +30,8 @@ Rails::Initializer.run do |config|
     :coderay,
     :acts_as_taggable_on, 
     :thinking_sphinx,
-    :restful_authentication
+    :restful_authentication,
+    :performance_monitor
   ]
 
   # Skip frameworks you're not going to use. To use Rails without a database,

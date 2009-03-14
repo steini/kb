@@ -17,3 +17,7 @@ config.action_controller.perform_caching             = false
 config.action_mailer.raise_delivery_errors = false
 
 config.cache_store = :mem_cache_store
+
+PerformanceMonitor::active = true
+PerformanceMonitor.app_name = "kb"
+PerformanceMonitor.valid_users = ["steini"]
