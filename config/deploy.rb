@@ -25,7 +25,7 @@ task :after_update_code, :roles => :app do
   run "cp #{db_config} #{release_path}/config/database.yml"
   run "ln -s /home/steini/rails_edge #{release_path}/vendor/rails"
   run "ln -s #{shared_path}/sphinx #{release_path}/db/sphinx"
-  run "cd #{release_path} && rake thinking_sphinx:configure RAILS_ENV=production"
+  run "cd #{release_path} && rake thinking_sphinx:configure RAILS_ENV=production --trace"
 end
 namespace :deploy do
   desc "Restart Application"

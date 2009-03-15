@@ -4,3 +4,6 @@
 [submodule "vendor/plugins/restful_authentication"]
 	path = vendor/plugins/restful_authentication
 	url = git://github.com/technoweenie/restful-authentication.git
+[submodule "vendor/plugins/performance_monitor"]
+	path = vendor/plugins/performance_monitor
+	url = git@github.com:denniskong/performance_monitor.git
