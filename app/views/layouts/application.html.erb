@@ -11,28 +11,32 @@
   </head>
   <body>
     <div class="wrapper">
-      <ul>
-        <li><%= link_to("home", "/") %></li>
-        <li><%= link_to("create entry", new_knowledge_entry_url) %></li>
-        <li>
+      <div id ="banner">
+        <div class="nav">
+          <h1><%= link_to('knowledge base',root_path)%></h1>
+          <ul>
+            <li><%= link_to("<span>home</span>", "/") %></li>
+            <li><%= link_to("create entry", new_knowledge_entry_url) %></li>
+
+            <%- if current_user.nil? -%>
+              <li><%= link_to("signup", "/signup") %></li>
+              <li><%= link_to("login", "/login") %></li>
+            <%- else -%>
+              <li><%= link_to("logout", "/logout") %></li>
+            <%- end -%>
+          </ul>
+        </div>
+        <div class="searchbox">
           <% form_tag(search_path) do %>
-            <p>
-              <%= text_field_tag("q") %>
-              <%= submit_tag("go") %>
-            </p>
+              <%= text_field_tag("q", '', :class => "search",:maxlength => 255 ,:size => 30) %>
+              <%= submit_tag("go",:class => "submit") %>
           <% end %>
-        </li>
-        <%- if current_user.nil? -%>
-          <li><%= link_to("signup", "/signup") %></li>
-          <li><%= link_to("login", "/login") %></li>
-        <%- else -%>
-          <li><%= link_to("logout", "/logout") %></li>
-        <%- end -%>
-      </ul>
-
+        </div>
+      </div>
       <%= "<p class=\"flash\">#{flash[:notice]}</p>" unless flash[:notice].nil? %>
-
-      <%= yield %>
+      <div class="container">
+        <%= yield %>
+      </div>
     </div>
   </body>
 </html>

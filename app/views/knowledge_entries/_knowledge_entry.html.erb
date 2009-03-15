@@ -1,13 +1,13 @@
-<strong><%= knowledge_entry.title %></strong>
+<h3><%= knowledge_entry.title %></h3>
 <%- unless current_user.nil? -%>
   <%= link_to("edit", :action => "edit", :id => knowledge_entry.id) %> /
   <%= link_to("delete", :action => "delete", :id => knowledge_entry.id) %>
 <%- end -%>
-<p>
+<div>
   <%= parse_coderay(knowledge_entry.content) %>
-</p>
-<p class="tags">
+</div>
+<ul class="tags_ke">
   <%- knowledge_entry.tags.each do |tag| -%>
-    <%= link_to(tag, tag_path(tag)) %>
+    <li><%= link_to(tag, tag_path(tag)) %></li>
   <%- end -%>
-</p>
+</ul>

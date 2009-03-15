@@ -1,9 +1,19 @@
-<p class="tags">
-  <h2>Tags</h2>
-  <%- @tags.each do |tag| -%>
-    <%= link_to(tag, tag_path(tag)) %>
-  <%- end -%>
-</p>
+
 <link rel="alternate" type="application/rss+xml" title="RSS" href="/knowledge_entries/rss" />
-<h2>latest knowledge</h2>
-<%= render :partial => 'list', :locals => {:knowledge_entries => @knowledge_entries} %>
+<div class="kb">
+  <h2>latest knowledge</h2>
+  <%= render :partial => 'list', :locals => {:knowledge_entries => @knowledge_entries} %>
+</div>
+
+<div class="tags">
+  <h2>tags</h2>
+  <% unless @tags.nil? -%>
+    <div class="list">
+      <ul>
+        <%- @tags.each do |tag| -%>
+          <li><%= link_to(tag, tag_path(tag)) %></li>
+        <%- end -%>
+      </ul>
+    </div>
+  <% end -%>
+</div>
